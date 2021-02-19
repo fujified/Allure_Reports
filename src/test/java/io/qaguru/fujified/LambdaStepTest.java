@@ -45,9 +45,7 @@ public class LambdaStepTest {
         });
 
         step("looking for a repository " + REPOSITORY, () -> {
-            $(".header-search-input").click();
-            $(".header-search-input").sendKeys(REPOSITORY);
-            $(".header-search-input").submit();
+            $(".header-search-input").setValue(REPOSITORY).submit();
         });
 
         step("go to repository " + REPOSITORY, () -> {
@@ -59,7 +57,7 @@ public class LambdaStepTest {
         });
 
         step("check that Issue with number " + ISSUE_NUMBER + " exists", () -> {
-            $(withText(ISSUE_NUMBER)).should(Condition.exist);
+            $(withText(ISSUE_NUMBER)).should(Condition.visible);
         });
     }
 }
